@@ -1,0 +1,21 @@
+roles
+```````````
+admin
+employee
+electrician
+security
+
+rooms
+``````````
+server
+ups
+odc1
+odc2
+commonarea
+
+privileges
+````````````
+admin - server,ups,odc1,odc2,commonarea
+electrician - ups,commonarea,
+employee - commonarea
+security - commonarea
