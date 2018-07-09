@@ -11,6 +11,8 @@ import accesscontrol.models.rooms.Ups;
 
 public class Admin extends IRole {
 
+    public static final String ROLE_ADMIN = "ADMIN"; 
+    
 	public Set<String> getPrivileges() {
 		
 		if(privileges == null)

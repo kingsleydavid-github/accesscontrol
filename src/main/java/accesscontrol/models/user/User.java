@@ -8,7 +8,7 @@ import accesscontrol.models.roles.Security;
 
 public class User {
 	
-	//private Set<String> privileges = null;
+    //private Set<String> privileges = null;
 	private final String name;
 	private final String department;
 	private final IRole role;
@@ -36,21 +36,14 @@ public class User {
 		}
 		private IRole setRoleByStr(String role2) {
 			IRole role = new Employee();
-			switch(role2)
-			{
-			case "admin":
-				role= new Admin();
-				break;
-			case "employee":
-				role= new Employee();
-				break;
-			case "electritian":
-				role= new Electrician();
-				break;
-			case "security":
-				role= new Security();
-				break;
-			}
+			if(role2.equals("admin"))
+			    role= new Admin();
+		    if(role2.equals("employee"))
+		        role= new Employee();
+	        if(role2.equals("electritian"))
+	            role= new Electrician();
+            if(role2.equals("security"))
+                role= new Security();
 			return role;
 		}
 		
@@ -74,5 +67,41 @@ public class User {
 	public IRole getRole() {
 		return role;
 	}
+	
+	@Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((department == null) ? 0 : department.hashCode());
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((role == null) ? 0 : role.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        User other = (User) obj;
+        if (department == null)
+        {
+            if (other.department != null) return false;
+        }
+        else if (!department.equals(other.department)) return false;
+        if (name == null)
+        {
+            if (other.name != null) return false;
+        }
+        else if (!name.equals(other.name)) return false;
+        if (role == null)
+        {
+            if (other.role != null) return false;
+        }
+        else if (!role.equals(other.role)) return false;
+        return true;
+    }
 	
 }

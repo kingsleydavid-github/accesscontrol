@@ -7,6 +7,8 @@ import accesscontrol.models.rooms.CommonArea;
 
 public class Employee extends IRole {
 	
+    public static final String ROLE_EMPLOYEE = "EMPLOYEE";
+    
 	public Set<String> getPrivileges() {
 	
 		if(privileges == null)

@@ -11,6 +11,8 @@ import accesscontrol.models.rooms.Ups;
 
 public class Electrician extends IRole {
 
+    public static final String ROLE_ELECTRICIAN = "ELECTRICIAN";
+    
 	public Set<String> getPrivileges() {
 		
 		if(privileges == null)
@@ -21,10 +23,7 @@ public class Electrician extends IRole {
 				{
 					privileges = new HashSet<String>();
 					privileges.add(CommonArea.COMMOONAREA);
-					privileges.add(Server.SERVER);
 					privileges.add(Ups.UPS);
-					privileges.add(Odc1.ODC1);
-					privileges.add(Odc2.ODC2);
 				}
 			}
 		}
